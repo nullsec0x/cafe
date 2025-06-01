@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Gamja Flower', cursive;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  font-size: 3rem; /* smaller heading */
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* Switch main container from flex to grid for better column alignment */
+main#menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row; 
+  align-items: start;   
+  gap: 4rem 6rem;
+  max-width: 900px;
+  margin: 0 auto;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* Remove flex .column, so no need for that */
+
+/* Section style */
+.section {
+  margin-bottom: 2.5rem;
+  border-bottom: none;
+  padding-bottom: 0;
+  position: relative;
+  align-self: stretch; /* 🔥 make each section stretch to same vertical start */
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section h2 svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: black;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+/* Menu items */
+.menu-item {
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid black;
+}
+
+.menu-item h3 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-item .price {
+  font-weight: 700;
+}
+
+.ingredients {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  margin-left: 0.5rem;
+}
+
+/* Footer toggles */
+footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 1rem auto;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  .corner-doodle {
+    text-align: right;
+    margin-top: 4rem; /* creates some breathing room above it */
+  }
+}
+
+.corner-doodle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+}
+
+.corner-doodle img {
+  width: 64px; /* adjust size as you like */
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.corner-doodle img:hover {
+  transform: scale(1.1) rotate(3deg);
+  opacity: 1;
+}
+
+
+@keyframes doodlePop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+}
+
+.corner-doodle img {
+  animation: doodlePop 0.4s ease-out;
+}
